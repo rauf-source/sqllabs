@@ -63,7 +63,7 @@ select * from mytable;
 select * from mytable where pid >=2 -- 1st priority from[chooses table], 2nd priority where [picks required] , select [displays all]
 --order by
 select * from mytable where pid >=2 
-order by pid asc--desc /asc
+order by pid desc--desc /asc
 ----GROUP BY
 --makes groups.. does grouping
 --consider a scenario.. you want some data... db has different columns...country, city, salary, name
@@ -74,7 +74,7 @@ create table employees (em_id int primary key ,
 						city varchar(15),
 						gender varchar(10)
 						)
-insert into employees values ( 29, 'max payne', 610003, 'los angeles', 'male')
+insert into employees values ( 30, 'max payne2', 6120003, 'los angeles', 'male')
 --aggregate function sum , count, min, max
 select sum(salary) from employees
 select AVG(salary) from employees
@@ -88,6 +88,9 @@ group by gender
 -- group by city
 select sum(salary) as total_salary , city, gender from employees
 group by city, gender
+select min(salary) as total_salary, gender from employees
+group by gender
+---if you select something that is not in the group then error will be thrown
 --from employees...
 --group by 
 	-- second column comes from the table in the aggregate function
